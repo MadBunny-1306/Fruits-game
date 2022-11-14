@@ -15,6 +15,23 @@ html {
   position: relative;
 }
 
+#trials {
+  background-color: #f1ff92;
+  box-shadow: 0 4px rgba(0, 0, 0, 0.205);
+  border-radius: 3px;
+  width: 78px;
+  padding: 10px;
+  position: absolute;
+  /* visibility: hidden; */
+  display: none;
+}
+
+.life {
+  height: 16px;
+  width: 16px;
+  margin: 0 3px;
+}
+
 #score {
   background-color: #f1ff92;
   color: #9da14c;
@@ -56,17 +73,6 @@ html {
   text-align: center;
   position: relative;
   transition: all 0.2s;
-}
-
-#trials {
-  background-color: #f1ff92;
-  box-shadow: 0 4px rgba(0, 0, 0, 0.205);
-  border-radius: 3px;
-  width: 80px;
-  padding: 10px;
-  position: absolute;
-  /* visibility: hidden; */
-  display: none;
 }
 
 #gameOver {
