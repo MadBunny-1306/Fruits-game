@@ -50,10 +50,13 @@ html {
   font-size: 100px;
   text-align: center;
   font-family: cursive, sans-serif;
+  position: relative;
+  overflow: hidden;
 }
 
 .fruit {
   display: none;
+  position: absolute;
 }
 
 #instruction {
