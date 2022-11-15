@@ -41,7 +41,7 @@ html {
   left: 700px;
 }
 
-#question {
+#fruitsContainer {
   width: 650px;
   height: 400px;
   background-color: white;
@@ -50,6 +50,10 @@ html {
   font-size: 100px;
   text-align: center;
   font-family: cursive, sans-serif;
+}
+
+.fruit {
+  display: none;
 }
 
 #instruction {

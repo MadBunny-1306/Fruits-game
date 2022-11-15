@@ -1,6 +1,17 @@
 var playing = false;
 var score;
 var trials;
+var fruits = [
+  "coconut",
+  "maracuja",
+  "banana",
+  "strawberry",
+  "watermelon",
+  "cherries",
+  "peach",
+  "fig",
+  "pineapple",
+];
 
 $(function () {
   //click on start reset button
@@ -18,12 +29,14 @@ $(function () {
       $("#trials").show();
       trials = 3;
       addHearts();
+      //change button text to reset game
+      $("#startreset").html("Reset Game");
+      //start sending fruits
+      startAction();
     }
   });
 });
 
-//change button text to reset game
-//1.create a random fruit
 //define a random step
 //2.move fruit down one step every 30sec
 //is fruit too low?
@@ -36,9 +49,24 @@ $(function () {
 //play sound
 //explode fruit
 
-//functions
+//////////functions////////
+//show hearts
 function addHearts() {
   for (i = 0; i < trials; i++) {
     $("#trials").append(' <img src="assets/imgs/heart.png" class="life"> ');
   }
+}
+
+//start sending fruit
+function startAction() {
+  $("#fruit1").show();
+  chooseFruit();
+}
+
+//generate a random fruit
+function chooseFruit() {
+  $("#fruit1").attr(
+    "src",
+    "assets/imgs/" + fruits[Math.round(8 * Math.random())] + ".png"
+  );
 }
