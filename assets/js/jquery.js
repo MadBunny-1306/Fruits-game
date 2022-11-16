@@ -48,7 +48,15 @@ $(function () {
     //play sound
     $("#sliceSound")[0].play(); //posto ima dva izvora, onda koristimo array sa pozicijom onog zvuka koji zelimo da iskoristimo sada. a drugi nacin je sledeci:
     // document.getElementById("sliceSound").play();
-    //explode fruit
+
+    //stop fruit
+    clearInterval(action);
+
+    //hide fruit nad explode it
+    $("#fruit1").hide("explode", 500); //this explode animation will only work if jquery ui is embeded, not gonna work only with jquery
+
+    //send new fruit
+    setTimeout(startAction, 500); //delay for 500ms for new fruit, until explode animation of sliced fruit is done
   });
   //////////functions////////
 
