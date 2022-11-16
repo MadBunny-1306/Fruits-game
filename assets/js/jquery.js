@@ -56,7 +56,7 @@ $(function () {
     $("#fruit1").hide("explode", 500); //this explode animation will only work if jquery ui is embeded, not gonna work only with jquery
 
     //send new fruit
-    setTimeout(startAction, 500); //delay for 500ms for new fruit, until explode animation of sliced fruit is done
+    setTimeout(startAction, 800); //delay for 500ms for new fruit, until explode animation of sliced fruit is done
   });
   //////////functions////////
 
