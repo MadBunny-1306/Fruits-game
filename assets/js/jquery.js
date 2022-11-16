@@ -39,77 +39,82 @@ $(function () {
       startAction();
     }
   });
-});
 
-//yes->any trials left?
-//yes: repeat nb1
-//no: show game over, button text: start game
+  //slice fruit
+  $("#fruit1").mouseover(function () {
+    score++;
+    $("#scoreValue").html(score); //update score
 
-//slice a fruit
-//play sound
-//explode fruit
+    //play sound
+    $("#sliceSound")[0].play(); //posto ima dva izvora, onda koristimo array sa pozicijom onog zvuka koji zelimo da iskoristimo sada. a drugi nacin je sledeci:
+    // document.getElementById("sliceSound").play();
+    //explode fruit
+  });
+  //////////functions////////
 
-//////////functions////////
-
-//show hearts
-function addHearts() {
-  $("#trials").empty();
-  for (i = 0; i < trials; i++) {
-    $("#trials").append(' <img src="assets/imgs/heart.png" class="life"> ');
-  }
-}
-
-//start sending fruits
-function startAction() {
-  $("#fruit1").show();
-  chooseFruit(); //choose random fruit
-  $("#fruit1").css({ left: Math.round(550 * Math.random()), top: -100 }); //random position
-
-  //generate a random step
-  step = 1 + Math.round(5 * Math.random()); //change step
-  // move fruit down by one step every 10ms
-  action = setInterval(function () {
-    $("#fruit1").css("top", $("#fruit1").position().top + step); //move fruit by one step
-
-    //check if fruit is too low
-    if ($("#fruit1").position().top > $("#fruitsContainer").height()) {
-      //check if we have trials left
-      if (trials > 1) {
-        $("#fruit1").show(); //generate fruit
-        chooseFruit(); //show random fruit
-        $("#fruit1").css({ left: Math.round(550 * Math.random()), top: -100 }); //random position
-        //generate a random step
-        step = 1 + Math.round(5 * Math.random()); //change step
-        //reduce trials by one
-        trials--;
-        //populate trials box
-        addHearts();
-      } else {
-        //game over
-        playing = false; //we are not playing anymore
-        $("#startreset").html("Start Game"); //change button to start game
-        //show game over box
-        $("#gameOver").show();
-        $("#gameOver").html(
-          "<p>Game Over!</p><p>Your score is " + score + "</p>"
-        );
-        $("#trials").hide();
-        stopAction();
-      }
+  //show hearts
+  function addHearts() {
+    $("#trials").empty();
+    for (i = 0; i < trials; i++) {
+      $("#trials").append(' <img src="assets/imgs/heart.png" class="life"> ');
     }
-  }, 10);
-}
+  }
 
-//generate a random fruit
-function chooseFruit() {
-  $("#fruit1").attr(
-    "src",
-    "assets/imgs/" + fruits[Math.round(8 * Math.random())] + ".png"
-  );
-}
+  //start sending fruits
+  function startAction() {
+    $("#fruit1").show();
+    chooseFruit(); //choose random fruit
+    $("#fruit1").css({ left: Math.round(550 * Math.random()), top: -100 }); //random position
 
-//stop dropping fruits
-function stopAction() {
-  clearInterval(action);
-  $("#fruit1").hide();
-}
+    //generate a random step
+    step = 1 + Math.round(5 * Math.random()); //change step
+    // move fruit down by one step every 10ms
+    action = setInterval(function () {
+      $("#fruit1").css("top", $("#fruit1").position().top + step); //move fruit by one step
+
+      //check if fruit is too low
+      if ($("#fruit1").position().top > $("#fruitsContainer").height()) {
+        //check if we have trials left
+        if (trials > 1) {
+          $("#fruit1").show(); //generate fruit
+          chooseFruit(); //show random fruit
+          $("#fruit1").css({
+            left: Math.round(550 * Math.random()),
+            top: -100,
+          }); //random position
+          //generate a random step
+          step = 1 + Math.round(5 * Math.random()); //change step
+          //reduce trials by one
+          trials--;
+          //populate trials box
+          addHearts();
+        } else {
+          //game over
+          playing = false; //we are not playing anymore
+          $("#startreset").html("Start Game"); //change button to start game
+          //show game over box
+          $("#gameOver").show();
+          $("#gameOver").html(
+            "<p>Game Over!</p><p>Your score is " + score + "</p>"
+          );
+          $("#trials").hide();
+          stopAction();
+        }
+      }
+    }, 10);
+  }
+
+  //generate a random fruit
+  function chooseFruit() {
+    $("#fruit1").attr(
+      "src",
+      "assets/imgs/" + fruits[Math.round(8 * Math.random())] + ".png"
+    );
+  }
+
+  //stop dropping fruits
+  function stopAction() {
+    clearInterval(action);
+    $("#fruit1").hide();
+  }
+});
