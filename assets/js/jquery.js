@@ -1,6 +1,8 @@
 var playing = false;
 var score;
 var trials;
+var step;
+var action; //used for setInterval
 var fruits = [
   "coconut",
   "maracuja",
@@ -12,8 +14,6 @@ var fruits = [
   "fig",
   "pineapple",
 ];
-var step;
-var action; //used for setInterval
 
 $(function () {
   //click on start reset button
@@ -52,12 +52,13 @@ $(function () {
     //stop fruit
     clearInterval(action);
 
-    //hide fruit nad explode it
-    $("#fruit1").hide("explode", 500); //this explode animation will only work if jquery ui is embeded, not gonna work only with jquery
+    //hide fruit and explode it
+    $("#fruit1").hide("explode", 500); //this explode animation will only work if jquery ui is embeded, not gonna work on jquery alone
 
     //send new fruit
-    setTimeout(startAction, 800); //delay for 500ms for new fruit, until explode animation of sliced fruit is done
+    setTimeout(startAction, 800); //delay for 800ms for new fruit, until explode animation of sliced fruit is done
   });
+
   //////////functions////////
 
   //show hearts
