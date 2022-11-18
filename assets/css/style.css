@@ -36,17 +36,19 @@ html {
   background-color: #f1ff92;
   color: #9da14c;
   padding: 11px;
+  border-radius: 3px;
   box-shadow: 0px 4px 0px #9da14c;
   position: absolute;
-  left: 700px;
+  left: 680px;
 }
 
 #fruitsContainer {
   width: 650px;
   height: 400px;
   background-color: white;
-  margin: 50px auto 10px;
+  margin: 20px 50px 30px;
   box-shadow: 0px 4px #5670aa;
+  border-radius: 3px;
   font-size: 100px;
   text-align: center;
   font-family: cursive, sans-serif;
@@ -60,24 +62,31 @@ html {
 }
 
 #instruction {
-  width: 450px;
+  width: 380px;
   height: 50px;
   background-color: #b78adc;
   box-shadow: 0 4px #895cae;
-  margin: 10px auto;
+  border-radius: 3px;
+  margin: 30px auto 10px;
   text-align: center;
   line-height: 50px;
+  font-size: 20px;
+  letter-spacing: 2px;
+  color: #491669;
 }
 
 #startreset {
-  width: 90px;
-  padding: 10px;
+  width: 120px;
+  padding: 20px 25px;
   background-color: rgba(255, 255, 255, 0.507);
   margin: 0 auto;
   border-radius: 3px;
   cursor: pointer;
   box-shadow: 0 4px rgba(0, 0, 0, 0.205);
   text-align: center;
+  color: #025c86;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
   position: relative;
   transition: all 0.2s;
 }
@@ -85,13 +94,13 @@ html {
 #gameOver {
   height: 200px;
   width: 500px;
-  background: linear-gradient(#f8c468, #fe7a6c);
+  background: linear-gradient(#f8b568, #fe6cbc);
   color: white;
   font-size: 2.5em;
   text-align: center;
   text-transform: uppercase;
   position: absolute;
-  top: 170px;
+  top: 215px;
   left: 146px;
   line-height: 2.5em;
   z-index: 100;
