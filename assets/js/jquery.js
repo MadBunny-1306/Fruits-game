@@ -53,10 +53,10 @@ $(function () {
     clearInterval(action);
 
     //hide fruit and explode it
-    $("#fruit1").hide("explode", 500); //this explode animation will only work if jquery ui is embeded, not gonna work on jquery alone
+    $("#fruit1").hide("explode", 250); //this explode animation will only work if jquery ui is embeded, not gonna work on jquery alone
 
     //send new fruit
-    setTimeout(startAction, 800); //delay for 800ms for new fruit, until explode animation of sliced fruit is done
+    setTimeout(startAction, 400); //delay for 400ms for new fruit, until explode animation of sliced fruit is done
   });
 
   //////////functions////////
@@ -88,11 +88,12 @@ $(function () {
           $("#fruit1").show(); //generate fruit
           chooseFruit(); //show random fruit
           $("#fruit1").css({
+            //generate a random step
             left: Math.round(550 * Math.random()),
             top: -100,
           }); //random position
-          //generate a random step
-          step = 1 + Math.round(5 * Math.random()); //change step
+
+          step = 1 + Math.round(5 * Math.random()); //change step(speed?)
           //reduce trials by one
           trials--;
           //populate trials box
