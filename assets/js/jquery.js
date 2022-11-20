@@ -42,6 +42,10 @@ $(function () {
 
   //slice fruit
   $("#fruit1").mouseover(function () {
+    if (score % 3 === 0) {
+      startLevel = true;
+    } //making speed increase every 5 points
+
     score++;
     $("#scoreValue").html(score); //update score
 
@@ -69,6 +73,19 @@ $(function () {
     }
   }
 
+  //increase speed every 5 points
+  var startLevel;
+  function verifyScore(score) {
+    if (score < 12) {
+      step = 1;
+    }
+
+    if (score % 12 === 0 && startLevel) {
+      startLevel = false;
+      return (step += 2);
+    }
+  }
+
   //start sending fruits
   function startAction() {
     $("#fruit1").show();
@@ -76,8 +93,9 @@ $(function () {
     $("#fruit1").css({ left: Math.round(550 * Math.random()), top: -100 }); //random position
 
     //generate a random step
-    step = 1 + Math.round(5 * Math.random()); //change step
-    // move fruit down by one step every 10ms
+    // step = 1 + Math.round(5 * Math.random()); //change step(speed?)= this 5 is bc height of one step is 1-5px
+    verifyScore(score);
+
     action = setInterval(function () {
       $("#fruit1").css("top", $("#fruit1").position().top + step); //move fruit by one step
 
@@ -93,7 +111,9 @@ $(function () {
             top: -100,
           }); //random position
 
-          step = 1 + Math.round(5 * Math.random()); //change step(speed?)
+          // step = 1 + Math.round(5 * Math.random());
+          verifyScore(score); //change step
+
           //reduce trials by one
           trials--;
           //populate trials box
@@ -111,7 +131,7 @@ $(function () {
           stopAction();
         }
       }
-    }, 10);
+    }, 10); // move fruit down by one step every 10ms
   }
 
   //generate a random fruit
