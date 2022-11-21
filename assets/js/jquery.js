@@ -45,7 +45,7 @@ $(function () {
   $("#fruit1").mouseover(function () {
     if (score % 12 === 0) {
       startLevel = true;
-    } 
+    }
 
     score++;
     $("#scoreValue").html(score); //update score
