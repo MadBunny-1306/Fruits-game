@@ -41,10 +41,11 @@ $(function () {
   });
 
   //slice fruit
+  //making speed increase every 12 points
   $("#fruit1").mouseover(function () {
-    if (score % 3 === 0) {
+    if (score % 12 === 0) {
       startLevel = true;
-    } //making speed increase every 5 points
+    } 
 
     score++;
     $("#scoreValue").html(score); //update score
@@ -73,7 +74,7 @@ $(function () {
     }
   }
 
-  //increase speed every 5 points
+  //increase speed every 12 points
   var startLevel;
   function verifyScore(score) {
     if (score < 12) {
@@ -94,6 +95,7 @@ $(function () {
 
     //generate a random step
     // step = 1 + Math.round(5 * Math.random()); //change step(speed?)= this 5 is bc height of one step is 1-5px
+    //check speed / increase speed
     verifyScore(score);
 
     action = setInterval(function () {
