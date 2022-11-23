@@ -44,7 +44,8 @@ $(function () {
   //making speed increase every 12 points
   $("#fruit1").mouseover(function () {
     if (score % 12 === 0) {
-      startLevel = true;
+      //score is devided by 12 and the rest is 0, like 24:12 is 2, without rest..
+      startLevel = true; //then this is true and later.... dole u kodu
     }
 
     score++;
@@ -78,10 +79,12 @@ $(function () {
   var startLevel;
   function verifyScore(score) {
     if (score < 12) {
+      //up until score is 12 or higher, step is 1px and the speed is same
       step = 1;
     }
 
     if (score % 12 === 0 && startLevel) {
+      //da se ne bi brzina uvecavala i onda kada ne uhvatimo vocku, jer je srtatLevel i dalje true time sto je score i dalje deljiv sa 12 bez ostatka, onda cemo reci da je sada srtartLevel false i povecati brzinu cineci step vecim
       startLevel = false;
       return (step += 2);
     }
