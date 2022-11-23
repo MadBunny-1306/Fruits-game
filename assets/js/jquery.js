@@ -45,7 +45,7 @@ $(function () {
   $("#fruit1").mouseover(function () {
     if (score % 12 === 0) {
       //score is devided by 12 and the rest is 0, like 24:12 is 2, without rest..
-      startLevel = true; //then this is true and later.... dole u kodu
+      startLevel = true; //then this is true and later(dole u kodu).. and if it's not true it just ignore
     }
 
     score++;
